@@ -9,10 +9,15 @@ const FeedBack = ({title}) =>{
   )
 }
 
-const Button = ({handleClick,text}) =>{
+const Button = ({good,neutral,bad}) =>{
   return( 
   <div>
-    <button onClick={handleClick}>{text}</button>
+    <button onClick={good}>good</button>
+    <button onClick={neutral}>neutral</button>
+    <button onClick={bad}>bad</button>
+
+
+    
 
   </div>
 
@@ -70,9 +75,9 @@ const handleNeutralClick = (neutralValue) =>{
     <div>
      <FeedBack title='give feedback' />
 
-     <Button handleClick={() => handleGoodClick(good  + 1)} text='good'/>
-     <Button handleClick={() => handleNeutralClick(neutral + 1)} text='neutral'/>
-     <Button handleClick={() => handleBadClick(bad + 1)} text='bad'/>
+     <Button good={() => handleGoodClick(good  + 1)}
+       neutral={() => handleNeutralClick(neutral + 1)} 
+     bad={() => handleBadClick(bad + 1)}/>
 
      <Statistics title = 'statistics'/>  
      <Statistics text = 'good' value={good} />
