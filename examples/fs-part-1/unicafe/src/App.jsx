@@ -1,75 +1,56 @@
 import { useState } from "react";
 
-const FeedBack = (props) =>{
+const FeedBack = ({title}) =>{
 
   return(
     <div>
-      <h1>{props.title}</h1>
-      <button onClick={props.handleGoodClick}>good</button>
-      <button onClick={props.setGood}>neutral</button>
-      <button onClick={props.setGood}>bad</button>
-
-
+      <h1>{title}</h1>
     </div>
   )
-
-
 }
 
-const Statistics = (props) =>{
+const Button = ({handleClick,text}) =>{
+  return( 
+  <div>
+    <button onClick={handleClick}>{text}</button>
+
+  </div>
+
+)
+
+}
+const Statistics = ({title,text,value}) =>{
  
   return(
     <div>
-      <h1>{props.title}</h1>
-      <p >good {props.setGood}</p>
-      <p >neutral</p>
-      <p >bad</p>
-
-
+     <h1>{title}</h1>
+      <div >{text} {value}</div>
     </div>
   )
 
 }
 
-
 const App = () =>{
   const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
-
-const handleGoodClick = () =>{
-  const newClicks= () =>{
-  good + 1
-  }
-  setGood(newClicks)
-}
-
-
-const handleNeutralClick = () =>{
-  const newClicks= () =>{
-  neutral + 1
-  }
-  setNeutral(newClicks)
-}
-
-const handleBadClick = () =>{
-  const newClicks= () =>{
-  bad + 1
-  }
-  setBad(newClicks)
-}
-
-
-
-
   
 
+const setToGood = (goodValue) =>{
+  console.log(goodValue)
+  setGood(goodValue)
 
+  }
 
+ 
+        
   return(
     <div>
      <FeedBack title='give feedback' />
-     <Statistics title = 'statistics'/>
+     <Button handleClick={() => setGood(good  + 1)} text='good'/>
+     
+     <Statistics title = 'statistics'/>  
+     <Statistics text = 'good' value={good} />
+    
+
 
     </div>
   )
