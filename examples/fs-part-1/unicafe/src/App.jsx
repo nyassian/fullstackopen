@@ -38,11 +38,31 @@ const Statistics = ({title,text,value}) =>{
 const Total = ({all}) =>{
   return(
     <div>
-     All is  {all}
+     All {all}
 
     </div>
   )
 }
+
+const Average = (props) => {
+  return(
+    <div>
+      Average {props.average}
+    </div>
+  )
+}
+
+const Positive = (props) =>{
+  
+ 
+  
+  return(
+    <div>
+       positive {props.positive}%
+    </div>
+  )
+}
+
 
 const App = () =>{
   const [good, setGood] = useState(0)
@@ -51,20 +71,20 @@ const App = () =>{
   
 
 const handleGoodClick = (goodValue) =>{
-  console.log(goodValue)
+  // console.log(goodValue)
   setGood(goodValue)
 
   }
 
 
 const handleNeutralClick = (neutralValue) =>{
-  console.log(neutralValue)
+  // console.log(neutralValue)
   setNeutral(neutralValue)
 
   }
 
   const handleBadClick = (badValue) =>{
-    console.log(badValue)
+    // console.log(badValue)
     setBad(badValue)
   
     }
@@ -86,7 +106,12 @@ const handleNeutralClick = (neutralValue) =>{
 
      <Total  all={good + neutral + bad} />
      
+     <Average average={(good + neutral + bad) / 3 }/>
 
+
+     <Positive positive={((good + 0 - bad) / 3) * 100}/>
+
+       
 
     
 
