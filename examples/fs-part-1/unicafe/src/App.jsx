@@ -16,9 +16,6 @@ const Button = ({good,neutral,bad}) =>{
     <button onClick={neutral}>neutral</button>
     <button onClick={bad}>bad</button>
 
-
-    
-
   </div>
 
 )
@@ -54,8 +51,6 @@ const Average = (props) => {
 
 const Positive = (props) =>{
   
- 
-  
   return(
     <div>
        positive {props.positive}%
@@ -69,28 +64,21 @@ const App = () =>{
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
   
-
 const handleGoodClick = (goodValue) =>{
-  // console.log(goodValue)
   setGood(goodValue)
 
   }
 
-
 const handleNeutralClick = (neutralValue) =>{
-  // console.log(neutralValue)
   setNeutral(neutralValue)
 
   }
 
   const handleBadClick = (badValue) =>{
-    // console.log(badValue)
     setBad(badValue)
   
     }
-
- 
-        
+       
   return(
     <div>
      <FeedBack title='give feedback' />
@@ -108,13 +96,7 @@ const handleNeutralClick = (neutralValue) =>{
      
      <Average average={(good + neutral + bad) / 3 }/>
 
-
      <Positive positive={((good + 0 - bad) / 3) * 100}/>
-
-       
-
-    
-
 
     </div>
   )
